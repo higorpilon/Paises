@@ -39,6 +39,8 @@
             this.blPopulacao = new System.Windows.Forms.Label();
             this.lblGini = new System.Windows.Forms.Label();
             this.lblBandeira = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,8 +58,9 @@
             this.lbPaises.FormattingEnabled = true;
             this.lbPaises.Location = new System.Drawing.Point(100, 58);
             this.lbPaises.Name = "lbPaises";
-            this.lbPaises.Size = new System.Drawing.Size(373, 199);
+            this.lbPaises.Size = new System.Drawing.Size(207, 173);
             this.lbPaises.TabIndex = 1;
+            this.lbPaises.SelectedIndexChanged += new System.EventHandler(this.lbPaises_SelectedIndexChanged);
             // 
             // progressBarPaises
             // 
@@ -142,15 +145,26 @@
             this.lblBandeira.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBandeira.Location = new System.Drawing.Point(106, 279);
             this.lblBandeira.Name = "lblBandeira";
-            this.lblBandeira.Size = new System.Drawing.Size(39, 16);
+            this.lblBandeira.Size = new System.Drawing.Size(75, 16);
             this.lblBandeira.TabIndex = 10;
-            this.lblBandeira.Text = "Gini:";
+            this.lblBandeira.Text = "Bandeira:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(123, 310);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(268, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 543);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblBandeira);
             this.Controls.Add(this.lblGini);
             this.Controls.Add(this.blPopulacao);
@@ -164,6 +178,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Bandeira:";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,6 +197,7 @@
         private System.Windows.Forms.Label blPopulacao;
         private System.Windows.Forms.Label lblGini;
         private System.Windows.Forms.Label lblBandeira;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

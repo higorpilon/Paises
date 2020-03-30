@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -35,8 +36,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Data.Sqlite, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.3.1.2\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler, Version=1.2.0.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.1.2.0\lib\netstandard2.0\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.ImageGenerator, Version=1.1.3.0, Culture=neutral, PublicKeyToken=0ef6c878974c90ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.ImageGenerator.1.1.3\lib\net45\NReco.ImageGenerator.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.2.669, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.2\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
@@ -50,21 +63,38 @@
     <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.2.669, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.2\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="Svg, Version=3.0.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.3.0.102\lib\net452\Svg.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,9 +115,15 @@
     <Compile Include="Modelos\Currency.cs" />
     <Compile Include="Modelos\Language.cs" />
     <Compile Include="Modelos\Pais.cs" />
-    <Compile Include="Modelos\Translation.cs" />
+    <Compile Include="Modelos\Regionalbloc.cs" />
+    <Compile Include="Modelos\Response.cs" />
+    <Compile Include="Modelos\Translations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\NetworkService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,7 +150,259 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bandeiras\afghanistan.png" />
+    <Content Include="bandeiras\aland.png" />
+    <Content Include="bandeiras\albania.png" />
+    <Content Include="bandeiras\algeria.png" />
+    <Content Include="bandeiras\americanSamoa.png" />
+    <Content Include="bandeiras\andorra.png" />
+    <Content Include="bandeiras\angola.png" />
+    <Content Include="bandeiras\anguilla.png" />
+    <Content Include="bandeiras\antarctida.png" />
+    <Content Include="bandeiras\antiguaBarbuda.png" />
+    <Content Include="bandeiras\argentina.png" />
+    <Content Include="bandeiras\armenia.png" />
+    <Content Include="bandeiras\aruba.png" />
+    <Content Include="bandeiras\australia.png" />
+    <Content Include="bandeiras\austria.png" />
+    <Content Include="bandeiras\azerbaijan.png" />
+    <Content Include="bandeiras\bahamas.png" />
+    <Content Include="bandeiras\bahrein.png" />
+    <Content Include="bandeiras\bangladesh.png" />
+    <Content Include="bandeiras\barbados.png" />
+    <Content Include="bandeiras\belgium.png" />
+    <Content Include="bandeiras\belize.png" />
+    <Content Include="bandeiras\benin.png" />
+    <Content Include="bandeiras\bermuda.png" />
+    <Content Include="bandeiras\bhutan.png" />
+    <Content Include="bandeiras\bolivia.png" />
+    <Content Include="bandeiras\bonaire.png" />
+    <Content Include="bandeiras\bosnia.png" />
+    <Content Include="bandeiras\botswana.png" />
+    <Content Include="bandeiras\bouvet.png" />
+    <Content Include="bandeiras\brazil.png" />
+    <Content Include="bandeiras\british_indian_ocean_territory.png" />
+    <Content Include="bandeiras\brunei.png" />
+    <Content Include="bandeiras\bulgaria.png" />
+    <Content Include="bandeiras\burkinafaso.png" />
+    <Content Include="bandeiras\burundi.png" />
+    <Content Include="bandeiras\camboja.png" />
+    <Content Include="bandeiras\cameroon.png" />
+    <Content Include="bandeiras\canada.png" />
+    <Content Include="bandeiras\capevert.png" />
+    <Content Include="bandeiras\cayman.png" />
+    <Content Include="bandeiras\central_african_republic.png" />
+    <Content Include="bandeiras\chad.png" />
+    <Content Include="bandeiras\chile.png" />
+    <Content Include="bandeiras\china.png" />
+    <Content Include="bandeiras\christmas.png" />
+    <Content Include="bandeiras\cocos.png" />
+    <Content Include="bandeiras\colombia.png" />
+    <Content Include="bandeiras\comoros.png" />
+    <Content Include="bandeiras\congo.png" />
+    <Content Include="bandeiras\cook_island.png" />
+    <Content Include="bandeiras\costa_rica.png" />
+    <Content Include="bandeiras\croatia.png" />
+    <Content Include="bandeiras\cuba.png" />
+    <Content Include="bandeiras\curacao.png" />
+    <Content Include="bandeiras\cyprus.png" />
+    <Content Include="bandeiras\czech_republic.png" />
+    <Content Include="bandeiras\denmark.png" />
+    <Content Include="bandeiras\djibouti.png" />
+    <Content Include="bandeiras\dominica.png" />
+    <Content Include="bandeiras\dominican_republic.png" />
+    <Content Include="bandeiras\ecuador.png" />
+    <Content Include="bandeiras\egypt.png" />
+    <Content Include="bandeiras\elsalvador.png" />
+    <Content Include="bandeiras\equatorialGuinea.png" />
+    <Content Include="bandeiras\eritrea.png" />
+    <Content Include="bandeiras\estonia.png" />
+    <Content Include="bandeiras\ethiopia.png" />
+    <Content Include="bandeiras\falkland.png" />
+    <Content Include="bandeiras\faroe.png" />
+    <Content Include="bandeiras\fiji.png" />
+    <Content Include="bandeiras\finland.png" />
+    <Content Include="bandeiras\france.png" />
+    <Content Include="bandeiras\frenchguiana.png" />
+    <Content Include="bandeiras\frenchpolinesia.png" />
+    <Content Include="bandeiras\frenchsouthernterritories.png" />
+    <Content Include="bandeiras\gabon.png" />
+    <Content Include="bandeiras\gambia.png" />
+    <Content Include="bandeiras\georgia.png" />
+    <Content Include="bandeiras\germany.png" />
+    <Content Include="bandeiras\ghana.png" />
+    <Content Include="bandeiras\gibraltar.png" />
+    <Content Include="bandeiras\greece.png" />
+    <Content Include="bandeiras\greenland.png" />
+    <Content Include="bandeiras\grenada.png" />
+    <Content Include="bandeiras\guadeloupe.png" />
+    <Content Include="bandeiras\guam.png" />
+    <Content Include="bandeiras\guatemala.png" />
+    <Content Include="bandeiras\guernsey.png" />
+    <Content Include="bandeiras\guinea-bissau.png" />
+    <Content Include="bandeiras\guinea.png" />
+    <Content Include="bandeiras\guyana.png" />
+    <Content Include="bandeiras\haiti.png" />
+    <Content Include="bandeiras\heardisland.png" />
+    <Content Include="bandeiras\holysee.png" />
+    <Content Include="bandeiras\honduras.png" />
+    <Content Include="bandeiras\hongkong.png" />
+    <Content Include="bandeiras\hungary.png" />
+    <Content Include="bandeiras\iceland.png" />
+    <Content Include="bandeiras\india.png" />
+    <Content Include="bandeiras\indonesia.png" />
+    <Content Include="bandeiras\iran.png" />
+    <Content Include="bandeiras\iraq.png" />
+    <Content Include="bandeiras\ireland.png" />
+    <Content Include="bandeiras\isleofman.png" />
+    <Content Include="bandeiras\israel.png" />
+    <Content Include="bandeiras\italy.png" />
+    <Content Include="bandeiras\ivoire-cote.png" />
+    <Content Include="bandeiras\jamaica.png" />
+    <Content Include="bandeiras\japan.png" />
+    <Content Include="bandeiras\jersey.png" />
+    <Content Include="bandeiras\jordan.png" />
+    <Content Include="bandeiras\kazakhstan.png" />
+    <Content Include="bandeiras\kenya.png" />
+    <Content Include="bandeiras\kiribati.png" />
+    <Content Include="bandeiras\kuwait.png" />
+    <Content Include="bandeiras\kyrgyzstan.png" />
+    <Content Include="bandeiras\laos.png" />
+    <Content Include="bandeiras\latvia.png" />
+    <Content Include="bandeiras\lebanon.png" />
+    <Content Include="bandeiras\lesotho.png" />
+    <Content Include="bandeiras\liberia.png" />
+    <Content Include="bandeiras\libya.png" />
+    <Content Include="bandeiras\liechtenstein.png" />
+    <Content Include="bandeiras\lithuania.png" />
+    <Content Include="bandeiras\luxembourg.png" />
+    <Content Include="bandeiras\macao.png" />
+    <Content Include="bandeiras\macedonia.png" />
+    <Content Include="bandeiras\madagascar.png" />
+    <Content Include="bandeiras\malawi.png" />
+    <Content Include="bandeiras\malaysia.png" />
+    <Content Include="bandeiras\maldives.png" />
+    <Content Include="bandeiras\mali.png" />
+    <Content Include="bandeiras\malta.png" />
+    <Content Include="bandeiras\marshallislands.png" />
+    <Content Include="bandeiras\martinique.png" />
+    <Content Include="bandeiras\mauritania.png" />
+    <Content Include="bandeiras\mauritius.png" />
+    <Content Include="bandeiras\mayotte.png" />
+    <Content Include="bandeiras\mexico.png" />
+    <Content Include="bandeiras\micronesia.png" />
+    <Content Include="bandeiras\moldova.png" />
+    <Content Include="bandeiras\monaco.png" />
+    <Content Include="bandeiras\mongolia.png" />
+    <Content Include="bandeiras\montenegro.png" />
+    <Content Include="bandeiras\montserrat.png" />
+    <Content Include="bandeiras\morocco.png" />
+    <Content Include="bandeiras\mozambique.png" />
+    <Content Include="bandeiras\myanmar.png" />
+    <Content Include="bandeiras\namibia.png" />
+    <Content Include="bandeiras\nauru.png" />
+    <Content Include="bandeiras\nepal.png" />
+    <Content Include="bandeiras\netherlands.png" />
+    <Content Include="bandeiras\new-caledonia.png" />
+    <Content Include="bandeiras\new-zealand.png" />
+    <Content Include="bandeiras\nicaragua.png" />
+    <Content Include="bandeiras\niger.png" />
+    <Content Include="bandeiras\nigeria.png" />
+    <Content Include="bandeiras\niue.png" />
+    <Content Include="bandeiras\norfolk.png" />
+    <Content Include="bandeiras\northern_mariana.png" />
+    <Content Include="bandeiras\northkorea.png" />
+    <Content Include="bandeiras\norway.png" />
+    <Content Include="bandeiras\oman.png" />
+    <Content Include="bandeiras\pakistan.png" />
+    <Content Include="bandeiras\palau.png" />
+    <Content Include="bandeiras\palestine.png" />
+    <Content Include="bandeiras\panama.png" />
+    <Content Include="bandeiras\papua.png" />
+    <Content Include="bandeiras\paraguay.png" />
+    <Content Include="bandeiras\peru.png" />
+    <Content Include="bandeiras\philippines.png" />
+    <Content Include="bandeiras\pitcairn.png" />
+    <Content Include="bandeiras\poland.png" />
+    <Content Include="bandeiras\portugal.png" />
+    <Content Include="bandeiras\puerto-rico.png" />
+    <Content Include="bandeiras\qatar.png" />
+    <Content Include="bandeiras\republic-of-kosovo.png" />
+    <Content Include="bandeiras\reunion.png" />
+    <Content Include="bandeiras\romania.png" />
+    <Content Include="bandeiras\russia.png" />
+    <Content Include="bandeiras\rwanda.png" />
+    <Content Include="bandeiras\saint-barthelemy.png" />
+    <Content Include="bandeiras\saint-helena.png" />
+    <Content Include="bandeiras\saint-kitts.png" />
+    <Content Include="bandeiras\saint-lucia.png" />
+    <Content Include="bandeiras\saint-martin.png" />
+    <Content Include="bandeiras\saint-pierre.png" />
+    <Content Include="bandeiras\saint-vincent.png" />
+    <Content Include="bandeiras\samoa.png" />
+    <Content Include="bandeiras\san-marino.png" />
+    <Content Include="bandeiras\saotome.png" />
+    <Content Include="bandeiras\saudi-arabia.png" />
+    <Content Include="bandeiras\senegal.png" />
+    <Content Include="bandeiras\serbia.png" />
+    <Content Include="bandeiras\seychelles.png" />
+    <Content Include="bandeiras\sierra-leone.png" />
+    <Content Include="bandeiras\singapore.png" />
+    <Content Include="bandeiras\sint-maarten.png" />
+    <Content Include="bandeiras\slovakia.png" />
+    <Content Include="bandeiras\slovenia.png" />
+    <Content Include="bandeiras\solomon-islands.png" />
+    <Content Include="bandeiras\somalia.png" />
+    <Content Include="bandeiras\south-africa.png" />
+    <Content Include="bandeiras\south-georgia.png" />
+    <Content Include="bandeiras\south-korea.png" />
+    <Content Include="bandeiras\south-sudan.png" />
+    <Content Include="bandeiras\spain.png" />
+    <Content Include="bandeiras\sri-lanka.png" />
+    <Content Include="bandeiras\sudan.png" />
+    <Content Include="bandeiras\suriname.png" />
+    <Content Include="bandeiras\svalbard.png" />
+    <Content Include="bandeiras\swaziland.png" />
+    <Content Include="bandeiras\sweden.png" />
+    <Content Include="bandeiras\switzerland.png" />
+    <Content Include="bandeiras\syria.png" />
+    <Content Include="bandeiras\taiwan.png" />
+    <Content Include="bandeiras\tajikistan.png" />
+    <Content Include="bandeiras\tanzania.png" />
+    <Content Include="bandeiras\thailand.png" />
+    <Content Include="bandeiras\timor.png" />
+    <Content Include="bandeiras\togo.png" />
+    <Content Include="bandeiras\tokelau.png" />
+    <Content Include="bandeiras\tonga.png" />
+    <Content Include="bandeiras\trinidad.png" />
+    <Content Include="bandeiras\tunisia.png" />
+    <Content Include="bandeiras\turkey.png" />
+    <Content Include="bandeiras\turkmenistan.png" />
+    <Content Include="bandeiras\turks-caicos.png" />
+    <Content Include="bandeiras\tuvalu.png" />
+    <Content Include="bandeiras\uganda.png" />
+    <Content Include="bandeiras\ukraine.png" />
+    <Content Include="bandeiras\united-emirates.png" />
+    <Content Include="bandeiras\united-kingdom.png" />
+    <Content Include="bandeiras\united-states-of-america.png" />
+    <Content Include="bandeiras\united_states_minor_outlying_islands.png" />
+    <Content Include="bandeiras\uruguay.png" />
+    <Content Include="bandeiras\uzbekistan.png" />
+    <Content Include="bandeiras\vanuatu.png" />
+    <Content Include="bandeiras\venezuela.png" />
+    <Content Include="bandeiras\vietnam.png" />
+    <Content Include="bandeiras\virgin_islands%28us%29.png" />
+    <Content Include="bandeiras\virgin_islands_brittish.png" />
+    <Content Include="bandeiras\wallis.png" />
+    <Content Include="bandeiras\western-sahara.png" />
+    <Content Include="bandeiras\yemen.png" />
+    <Content Include="bandeiras\zambia.png" />
+    <Content Include="bandeiras\zimbabwe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="onlineflags\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -122,5 +410,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
 </Project>

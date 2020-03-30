@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Paises.Modelos
 {
-   public class Translation
+   public class Translations
     {
         public string de { get; set; }
         public string es { get; set; }
@@ -19,5 +19,4 @@ namespace Paises.Modelos
         public string hr { get; set; }
         public string fa { get; set; }
     }
-}
 }
