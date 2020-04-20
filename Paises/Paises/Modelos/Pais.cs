@@ -14,11 +14,11 @@ namespace Paises.Modelos
         public string alpha3Code { get; set; }
         public List<string> callingCodes { get; set; }
         public string capital { get; set; }
-        public List<object> altSpellings { get; set; }
+        public List<string> altSpellings { get; set; }
         public string region { get; set; }
         public string subregion { get; set; }
         public int population { get; set; }
-        public List<object> latlng { get; set; }
+        public List<double> latlng { get; set; }
         public string demonym { get; set; }
         public double? area { get; set; }
         public double? gini { get; set; }

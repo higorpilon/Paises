@@ -32,7 +32,7 @@ namespace Paises
         private List<Pais> paises = new List<Pais>();
         private DialogService dialogService;
         #endregion
-
+        public DataService DataService { get; set; }
 
         public Form1()
         {
@@ -41,6 +41,7 @@ namespace Paises
             networkService = new NetworkService();
             apiService = new ApiService();
             dialogService = new DialogService();
+            DataService = new DataService();
             LoadPaises();
         }
 
@@ -97,7 +98,9 @@ namespace Paises
             var response = await apiService.GetCountries("http://restcountries.eu", "/rest/v2/all");
 
             paises = (List<Pais>)response.Result;
-           
+
+            await DataService.SaveData(paises);
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -107,9 +110,11 @@ namespace Paises
 
         private void lbPaises_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblCapital.Text = $"Capital: {paises[lbPaises.SelectedIndex].capital}";
-            lblNome.Text = $"Nome: {paises[lbPaises.SelectedIndex].name}";
-            lblGini.Text = $"Nome: {paises[lbPaises.SelectedIndex].currencies[0].name}";
+            Pais country  = (Pais)lbPaises.SelectedItem;
+
+            lblCapital.Text = $"Capital: {country.capital}";
+            lblNome.Text = $"Nome: {country.name}";
+            lblGini.Text = $"Nome: {country.currencies[0].name}";
 
             // SvgTransformConverter svg = new SvgTransformConverter();
 
