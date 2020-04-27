@@ -11,8 +11,8 @@ namespace Paises.Modelos
         
             public string Acronym { get; set; }
             public string Name { get; set; }
-            public List<object> OtherAcronyms { get; set; }
-            public List<object> OtherNames { get; set; }
+            public List<string> OtherAcronyms { get; set; }
+            public List<string> OtherNames { get; set; }
         
     }
 }
