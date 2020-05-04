@@ -37,7 +37,7 @@
             this.lblRegiao = new System.Windows.Forms.Label();
             this.lblSubRegiao = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.blPopulacao = new System.Windows.Forms.Label();
+            this.lblPopulacao = new System.Windows.Forms.Label();
             this.lblGini = new System.Windows.Forms.Label();
             this.lblBandeira = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,12 +52,13 @@
             this.lblNl = new System.Windows.Forms.Label();
             this.lblHr = new System.Windows.Forms.Label();
             this.lblFa = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblNumeric = new System.Windows.Forms.Label();
+            this.lblNative = new System.Windows.Forms.Label();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.lblDemonym = new System.Windows.Forms.Label();
+            this.lblCioc = new System.Windows.Forms.Label();
+            this.lblLat = new System.Windows.Forms.Label();
+            this.lbCurrencies = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // progressBarPaises
             // 
             this.progressBarPaises.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.progressBarPaises.Location = new System.Drawing.Point(726, 659);
+            this.progressBarPaises.Location = new System.Drawing.Point(726, 683);
             this.progressBarPaises.Name = "progressBarPaises";
             this.progressBarPaises.Size = new System.Drawing.Size(310, 23);
             this.progressBarPaises.TabIndex = 2;
@@ -92,7 +93,7 @@
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(449, 58);
+            this.lblNome.Location = new System.Drawing.Point(364, 81);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 3;
@@ -102,7 +103,7 @@
             // 
             this.lblCapital.AutoSize = true;
             this.lblCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapital.Location = new System.Drawing.Point(449, 241);
+            this.lblCapital.Location = new System.Drawing.Point(364, 264);
             this.lblCapital.Name = "lblCapital";
             this.lblCapital.Size = new System.Drawing.Size(42, 13);
             this.lblCapital.TabIndex = 4;
@@ -112,7 +113,7 @@
             // 
             this.lblRegiao.AutoSize = true;
             this.lblRegiao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegiao.Location = new System.Drawing.Point(449, 96);
+            this.lblRegiao.Location = new System.Drawing.Point(364, 119);
             this.lblRegiao.Name = "lblRegiao";
             this.lblRegiao.Size = new System.Drawing.Size(44, 13);
             this.lblRegiao.TabIndex = 5;
@@ -122,7 +123,7 @@
             // 
             this.lblSubRegiao.AutoSize = true;
             this.lblSubRegiao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubRegiao.Location = new System.Drawing.Point(449, 129);
+            this.lblSubRegiao.Location = new System.Drawing.Point(364, 152);
             this.lblSubRegiao.Name = "lblSubRegiao";
             this.lblSubRegiao.Size = new System.Drawing.Size(61, 13);
             this.lblSubRegiao.TabIndex = 6;
@@ -132,27 +133,27 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(48, 633);
+            this.lblStatus.Location = new System.Drawing.Point(48, 690);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(55, 16);
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "Status:";
             // 
-            // blPopulacao
+            // lblPopulacao
             // 
-            this.blPopulacao.AutoSize = true;
-            this.blPopulacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.blPopulacao.Location = new System.Drawing.Point(449, 162);
-            this.blPopulacao.Name = "blPopulacao";
-            this.blPopulacao.Size = new System.Drawing.Size(61, 13);
-            this.blPopulacao.TabIndex = 8;
-            this.blPopulacao.Text = "População:";
+            this.lblPopulacao.AutoSize = true;
+            this.lblPopulacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPopulacao.Location = new System.Drawing.Point(364, 185);
+            this.lblPopulacao.Name = "lblPopulacao";
+            this.lblPopulacao.Size = new System.Drawing.Size(61, 13);
+            this.lblPopulacao.TabIndex = 8;
+            this.lblPopulacao.Text = "População:";
             // 
             // lblGini
             // 
             this.lblGini.AutoSize = true;
             this.lblGini.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGini.Location = new System.Drawing.Point(449, 200);
+            this.lblGini.Location = new System.Drawing.Point(364, 223);
             this.lblGini.Name = "lblGini";
             this.lblGini.Size = new System.Drawing.Size(28, 13);
             this.lblGini.TabIndex = 9;
@@ -172,7 +173,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(51, 386);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(321, 210);
+            this.pictureBox1.Size = new System.Drawing.Size(253, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -288,65 +289,73 @@
             this.lblFa.TabIndex = 22;
             this.lblFa.Text = "FA:";
             // 
-            // label3
+            // lblNumeric
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(449, 513);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Numeric Code:";
+            this.lblNumeric.AutoSize = true;
+            this.lblNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeric.Location = new System.Drawing.Point(368, 448);
+            this.lblNumeric.Name = "lblNumeric";
+            this.lblNumeric.Size = new System.Drawing.Size(77, 13);
+            this.lblNumeric.TabIndex = 28;
+            this.lblNumeric.Text = "Numeric Code:";
             // 
-            // label4
+            // lblNative
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(449, 475);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Native Name:";
+            this.lblNative.AutoSize = true;
+            this.lblNative.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNative.Location = new System.Drawing.Point(368, 410);
+            this.lblNative.Name = "lblNative";
+            this.lblNative.Size = new System.Drawing.Size(72, 13);
+            this.lblNative.TabIndex = 27;
+            this.lblNative.Text = "Native Name:";
             // 
-            // label5
+            // lblArea
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(449, 442);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Area:";
+            this.lblArea.AutoSize = true;
+            this.lblArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArea.Location = new System.Drawing.Point(368, 377);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(32, 13);
+            this.lblArea.TabIndex = 26;
+            this.lblArea.Text = "Area:";
             // 
-            // label6
+            // lblDemonym
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(449, 409);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Demonym:";
+            this.lblDemonym.AutoSize = true;
+            this.lblDemonym.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDemonym.Location = new System.Drawing.Point(368, 344);
+            this.lblDemonym.Name = "lblDemonym";
+            this.lblDemonym.Size = new System.Drawing.Size(57, 13);
+            this.lblDemonym.TabIndex = 25;
+            this.lblDemonym.Text = "Demonym:";
             // 
-            // label7
+            // lblCioc
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(449, 554);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Cioc:";
+            this.lblCioc.AutoSize = true;
+            this.lblCioc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCioc.Location = new System.Drawing.Point(368, 492);
+            this.lblCioc.Name = "lblCioc";
+            this.lblCioc.Size = new System.Drawing.Size(31, 13);
+            this.lblCioc.TabIndex = 24;
+            this.lblCioc.Text = "Cioc:";
             // 
-            // label8
+            // lblLat
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(449, 371);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Lat/Lng:";
+            this.lblLat.AutoSize = true;
+            this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLat.Location = new System.Drawing.Point(368, 306);
+            this.lblLat.Name = "lblLat";
+            this.lblLat.Size = new System.Drawing.Size(48, 13);
+            this.lblLat.TabIndex = 23;
+            this.lblLat.Text = "Lat/Lng:";
+            // 
+            // lbCurrencies
+            // 
+            this.lbCurrencies.FormattingEnabled = true;
+            this.lbCurrencies.Location = new System.Drawing.Point(355, 531);
+            this.lbCurrencies.Name = "lbCurrencies";
+            this.lbCurrencies.Size = new System.Drawing.Size(200, 82);
+            this.lbCurrencies.TabIndex = 29;
             // 
             // Form1
             // 
@@ -356,12 +365,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1250, 749);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbCurrencies);
+            this.Controls.Add(this.lblNumeric);
+            this.Controls.Add(this.lblNative);
+            this.Controls.Add(this.lblArea);
+            this.Controls.Add(this.lblDemonym);
+            this.Controls.Add(this.lblCioc);
+            this.Controls.Add(this.lblLat);
             this.Controls.Add(this.lblFa);
             this.Controls.Add(this.lblHr);
             this.Controls.Add(this.lblNl);
@@ -376,7 +386,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblBandeira);
             this.Controls.Add(this.lblGini);
-            this.Controls.Add(this.blPopulacao);
+            this.Controls.Add(this.lblPopulacao);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblSubRegiao);
             this.Controls.Add(this.lblRegiao);
@@ -405,7 +415,7 @@
         private System.Windows.Forms.Label lblRegiao;
         private System.Windows.Forms.Label lblSubRegiao;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label blPopulacao;
+        private System.Windows.Forms.Label lblPopulacao;
         private System.Windows.Forms.Label lblGini;
         private System.Windows.Forms.Label lblBandeira;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -420,12 +430,13 @@
         private System.Windows.Forms.Label lblNl;
         private System.Windows.Forms.Label lblHr;
         private System.Windows.Forms.Label lblFa;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNumeric;
+        private System.Windows.Forms.Label lblNative;
+        private System.Windows.Forms.Label lblArea;
+        private System.Windows.Forms.Label lblDemonym;
+        private System.Windows.Forms.Label lblCioc;
+        private System.Windows.Forms.Label lblLat;
+        private System.Windows.Forms.ListBox lbCurrencies;
     }
 }
 

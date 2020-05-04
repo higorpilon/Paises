@@ -11,5 +11,11 @@ namespace Paises.Modelos
         public string code { get; set; }
         public string name { get; set; }
         public string symbol { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"{name} |  {symbol} | {code}";
+        }
     }
 }
