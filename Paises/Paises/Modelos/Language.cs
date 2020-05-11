@@ -13,5 +13,11 @@ namespace Paises.Modelos
         public string name { get; set; }
         public string nativeName { get; set; }
 
+
+        public override string ToString()
+        {
+            return $"{name}  |  {nativeName}";
+        }
+
     }
 }

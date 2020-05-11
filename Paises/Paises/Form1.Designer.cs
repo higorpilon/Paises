@@ -59,6 +59,8 @@
             this.lblCioc = new System.Windows.Forms.Label();
             this.lblLat = new System.Windows.Forms.Label();
             this.lbCurrencies = new System.Windows.Forms.ListBox();
+            this.lbLanguages = new System.Windows.Forms.ListBox();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +86,7 @@
             // progressBarPaises
             // 
             this.progressBarPaises.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.progressBarPaises.Location = new System.Drawing.Point(726, 683);
+            this.progressBarPaises.Location = new System.Drawing.Point(726, 673);
             this.progressBarPaises.Name = "progressBarPaises";
             this.progressBarPaises.Size = new System.Drawing.Size(310, 23);
             this.progressBarPaises.TabIndex = 2;
@@ -103,7 +105,7 @@
             // 
             this.lblCapital.AutoSize = true;
             this.lblCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapital.Location = new System.Drawing.Point(364, 264);
+            this.lblCapital.Location = new System.Drawing.Point(364, 200);
             this.lblCapital.Name = "lblCapital";
             this.lblCapital.Size = new System.Drawing.Size(42, 13);
             this.lblCapital.TabIndex = 4;
@@ -113,7 +115,7 @@
             // 
             this.lblRegiao.AutoSize = true;
             this.lblRegiao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegiao.Location = new System.Drawing.Point(364, 119);
+            this.lblRegiao.Location = new System.Drawing.Point(364, 107);
             this.lblRegiao.Name = "lblRegiao";
             this.lblRegiao.Size = new System.Drawing.Size(44, 13);
             this.lblRegiao.TabIndex = 5;
@@ -123,7 +125,7 @@
             // 
             this.lblSubRegiao.AutoSize = true;
             this.lblSubRegiao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubRegiao.Location = new System.Drawing.Point(364, 152);
+            this.lblSubRegiao.Location = new System.Drawing.Point(364, 129);
             this.lblSubRegiao.Name = "lblSubRegiao";
             this.lblSubRegiao.Size = new System.Drawing.Size(61, 13);
             this.lblSubRegiao.TabIndex = 6;
@@ -133,7 +135,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(48, 690);
+            this.lblStatus.Location = new System.Drawing.Point(48, 673);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(55, 16);
             this.lblStatus.TabIndex = 7;
@@ -143,7 +145,7 @@
             // 
             this.lblPopulacao.AutoSize = true;
             this.lblPopulacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPopulacao.Location = new System.Drawing.Point(364, 185);
+            this.lblPopulacao.Location = new System.Drawing.Point(364, 152);
             this.lblPopulacao.Name = "lblPopulacao";
             this.lblPopulacao.Size = new System.Drawing.Size(61, 13);
             this.lblPopulacao.TabIndex = 8;
@@ -153,7 +155,7 @@
             // 
             this.lblGini.AutoSize = true;
             this.lblGini.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGini.Location = new System.Drawing.Point(364, 223);
+            this.lblGini.Location = new System.Drawing.Point(364, 174);
             this.lblGini.Name = "lblGini";
             this.lblGini.Size = new System.Drawing.Size(28, 13);
             this.lblGini.TabIndex = 9;
@@ -163,7 +165,7 @@
             // 
             this.lblBandeira.AutoSize = true;
             this.lblBandeira.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBandeira.Location = new System.Drawing.Point(97, 327);
+            this.lblBandeira.Location = new System.Drawing.Point(48, 355);
             this.lblBandeira.Name = "lblBandeira";
             this.lblBandeira.Size = new System.Drawing.Size(75, 16);
             this.lblBandeira.TabIndex = 10;
@@ -293,7 +295,7 @@
             // 
             this.lblNumeric.AutoSize = true;
             this.lblNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeric.Location = new System.Drawing.Point(368, 448);
+            this.lblNumeric.Location = new System.Drawing.Point(364, 355);
             this.lblNumeric.Name = "lblNumeric";
             this.lblNumeric.Size = new System.Drawing.Size(77, 13);
             this.lblNumeric.TabIndex = 28;
@@ -303,7 +305,7 @@
             // 
             this.lblNative.AutoSize = true;
             this.lblNative.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNative.Location = new System.Drawing.Point(368, 410);
+            this.lblNative.Location = new System.Drawing.Point(364, 327);
             this.lblNative.Name = "lblNative";
             this.lblNative.Size = new System.Drawing.Size(72, 13);
             this.lblNative.TabIndex = 27;
@@ -313,7 +315,7 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(368, 377);
+            this.lblArea.Location = new System.Drawing.Point(367, 296);
             this.lblArea.Name = "lblArea";
             this.lblArea.Size = new System.Drawing.Size(32, 13);
             this.lblArea.TabIndex = 26;
@@ -323,7 +325,7 @@
             // 
             this.lblDemonym.AutoSize = true;
             this.lblDemonym.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDemonym.Location = new System.Drawing.Point(368, 344);
+            this.lblDemonym.Location = new System.Drawing.Point(364, 264);
             this.lblDemonym.Name = "lblDemonym";
             this.lblDemonym.Size = new System.Drawing.Size(57, 13);
             this.lblDemonym.TabIndex = 25;
@@ -333,7 +335,7 @@
             // 
             this.lblCioc.AutoSize = true;
             this.lblCioc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCioc.Location = new System.Drawing.Point(368, 492);
+            this.lblCioc.Location = new System.Drawing.Point(367, 386);
             this.lblCioc.Name = "lblCioc";
             this.lblCioc.Size = new System.Drawing.Size(31, 13);
             this.lblCioc.TabIndex = 24;
@@ -343,7 +345,7 @@
             // 
             this.lblLat.AutoSize = true;
             this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLat.Location = new System.Drawing.Point(368, 306);
+            this.lblLat.Location = new System.Drawing.Point(364, 229);
             this.lblLat.Name = "lblLat";
             this.lblLat.Size = new System.Drawing.Size(48, 13);
             this.lblLat.TabIndex = 23;
@@ -352,10 +354,45 @@
             // lbCurrencies
             // 
             this.lbCurrencies.FormattingEnabled = true;
-            this.lbCurrencies.Location = new System.Drawing.Point(355, 531);
+            this.lbCurrencies.Location = new System.Drawing.Point(367, 413);
             this.lbCurrencies.Name = "lbCurrencies";
-            this.lbCurrencies.Size = new System.Drawing.Size(200, 82);
+            this.lbCurrencies.Size = new System.Drawing.Size(177, 56);
             this.lbCurrencies.TabIndex = 29;
+            this.lbCurrencies.SelectedIndexChanged += new System.EventHandler(this.lbCurrencies_SelectedIndexChanged);
+            // 
+            // lbLanguages
+            // 
+            this.lbLanguages.FormattingEnabled = true;
+            this.lbLanguages.Location = new System.Drawing.Point(370, 494);
+            this.lbLanguages.Name = "lbLanguages";
+            this.lbLanguages.Size = new System.Drawing.Size(152, 56);
+            this.lbLanguages.TabIndex = 30;
+            // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemory = 5;
+            this.map.Location = new System.Drawing.Point(599, 338);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 2;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomEnabled = true;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(600, 313);
+            this.map.TabIndex = 31;
+            this.map.Zoom = 0D;
             // 
             // Form1
             // 
@@ -365,6 +402,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1250, 749);
+            this.Controls.Add(this.map);
+            this.Controls.Add(this.lbLanguages);
             this.Controls.Add(this.lbCurrencies);
             this.Controls.Add(this.lblNumeric);
             this.Controls.Add(this.lblNative);
@@ -437,6 +476,8 @@
         private System.Windows.Forms.Label lblCioc;
         private System.Windows.Forms.Label lblLat;
         private System.Windows.Forms.ListBox lbCurrencies;
+        private System.Windows.Forms.ListBox lbLanguages;
+        private GMap.NET.WindowsForms.GMapControl map;
     }
 }
 
