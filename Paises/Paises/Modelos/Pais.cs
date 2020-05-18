@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Paises.Modelos
 {
-  public class Pais
+  public class Pais : Object
     {
         public string name { get; set; }
         public List<string> topLevelDomain { get; set; }
