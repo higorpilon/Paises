@@ -35,15 +35,18 @@ namespace Paises.Services
             {
                 connection = new SQLiteConnection("Data Source=" + path);
                 connection.Open();
+                if (path == null)
+                {
+                    string sqlcommand = "CREATE TABLE Languages(alpha3code varchar(3) null, isoUm varchar(20) NULL, isoDois varchar(20) NULL, name varchar(50) null, nativeName varchar(50) null); CREATE TABLE AltSpellings(alpha3code varchar(3) NULL,descricao varchar(50) NULL); CREATE TABLE CallingCodes(alpha3code varchar(3) NULL, descricao varchar(5) NULL); CREATE TABLE  Countries(capital varchar(100) NULL, name varchar(100) NULL, alpha2code varchar(2) NULL, alpha3code varchar(3) NOT NULL, region varchar(20) NULL, subregion varchar(20) NULL, population int NULL, demonym varchar(50) NULL, area real NULL, gini real NULL, nativeName varchar(100) NULL, numericCode varchar(10) NULL, cioc varchar(10) NULL, flag varchar(200) NULL); CREATE TABLE Currencies(alpha3code varchar(3) NULL, code varchar(10) NULL, name varchar(50) NULL, symbol varchar(5) NULL); CREATE TABLE Latlng(alpha3code varchar(3) NULL, descricao real NULL); CREATE TABLE Otheracronyms(alpha3code varchar(3) NULL, descricao varchar(50) NULL); CREATE TABLE OtherNames(alpha3code varchar(3) NULL, otherNames varchar(200) NULL); CREATE TABLE Regionalblocs(alpha3code varchar(3) NULL, acronym varchar(20) NULL, name varchar(100) NULL); CREATE TABLE Timezones(alpha3code varchar(3) NULL, descricao varchar(20) NULL); CREATE TABLE TopLevelDomain(alpha3code varchar(3) NULL, descricao varchar(20) NULL); CREATE TABLE Translations(alpha3code varchar(3) NULL, de varchar(50) NULL, es varchar(50) NULL, fr varchar(50) NULL, ja varchar(50) NULL, it varchar(50) NULL, br varchar(50) NULL, pt varchar(50) NULL, nl varchar(50) NULL, hr varchar(50) NULL, fa varchar(50) NULL);";
 
+
+                    command = new SQLiteCommand(sqlcommand, connection);
+
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
                 //COLOCAR SEM FALTA NO FIM UM PARENTENSES PARA FECHAR A TABELA
-                string sqlcommand = "CREATE TABLE Languages(alpha3code varchar(3) null, isoUm varchar(20) NULL, isoDois varchar(20) NULL, name varchar(50) null, nativeName varchar(50) null); CREATE TABLE AltSpellings(alpha3code varchar(3) NULL,descricao varchar(50) NULL); CREATE TABLE CallingCodes(alpha3code varchar(3) NULL, descricao varchar(5) NULL); CREATE TABLE  Countries(capital varchar(100) NULL, name varchar(100) NULL, alpha2code varchar(2) NULL, alpha3code varchar(3) NOT NULL, region varchar(20) NULL, subregion varchar(20) NULL, population int NULL, demonym varchar(50) NULL, area real NULL, gini real NULL, nativeName varchar(100) NULL, numericCode varchar(10) NULL, cioc varchar(10) NULL, flag varchar(200) NULL); CREATE TABLE Currencies(alpha3code varchar(3) NULL, code varchar(10) NULL, name varchar(50) NULL, symbol varchar(5) NULL); CREATE TABLE Latlng(alpha3code varchar(3) NULL, descricao real NULL); CREATE TABLE Otheracronyms(alpha3code varchar(3) NULL, descricao varchar(50) NULL); CREATE TABLE OtherNames(alpha3code varchar(3) NULL, otherNames varchar(200) NULL); CREATE TABLE Regionalblocs(alpha3code varchar(3) NULL, acronym varchar(20) NULL, name varchar(100) NULL); CREATE TABLE Timezones(alpha3code varchar(3) NULL, descricao varchar(20) NULL); CREATE TABLE TopLevelDomain(alpha3code varchar(3) NULL, descricao varchar(20) NULL); CREATE TABLE Translations(alpha3code varchar(3) NULL, de varchar(50) NULL, es varchar(50) NULL, fr varchar(50) NULL, ja varchar(50) NULL, it varchar(50) NULL, br varchar(50) NULL, pt varchar(50) NULL, nl varchar(50) NULL, hr varchar(50) NULL, fa varchar(50) NULL);";
-
-
-                command = new SQLiteCommand(sqlcommand, connection);
-
-                command.ExecuteNonQuery();
-                connection.Close();
+               
             }
 
             catch (Exception e)

@@ -148,10 +148,22 @@ namespace Paises
             lbCurrencies.DataSource = country.currencies.ToList();
             lbLanguages.DataSource = country.languages.ToList();
 
-            // $"@C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg";
+           
             try
             {
-                pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
+                if (country.alpha3Code != "BRA" && country.alpha3Code != "IOT")
+                {
+                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
+                }
+                if (country.alpha3Code == "BRA")
+                {
+                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\brazil.png");
+                }
+                if (country.alpha3Code == "IOT")
+                {
+                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\british_indian_ocean_territory.png");
+                }
+               
             }
             catch (Exception ex)
             {
@@ -241,12 +253,16 @@ namespace Paises
 
         private void SetFlagImage(Pais currentCountry)
         {
-
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{currentCountry.alpha3Code}.jpg", UriKind.Absolute); //consertar aqui
-            bitmap.EndInit();
-            flag = bitmap;
+            if (currentCountry.alpha3Code != "BRA" || currentCountry.alpha3Code != "IOT")
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{currentCountry.alpha3Code}.jpg", UriKind.Absolute); //consertar aqui
+                bitmap.EndInit();
+                flag = bitmap;
+            }
+           
+           
             //Flag.Source = bitmap;
 
         }
@@ -313,7 +329,18 @@ namespace Paises
 
                 try
                 {
-                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
+                    if (country.alpha3Code != "BRA" && country.alpha3Code != "IOT")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
+                    }
+                    if (country.alpha3Code == "BRA")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\brazil.png");
+                    }
+                    if (country.alpha3Code == "IOT")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\british_indian_ocean_territory.png");
+                    }
                 }
                 catch (Exception ex)
                 {
