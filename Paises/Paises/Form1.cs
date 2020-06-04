@@ -72,12 +72,6 @@ namespace Paises
 
             }
 
-            // if (paises.Count == 0)
-            // {
-            //      MessageBox.Show("Atenção!", "Não ha ligação a internet.",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            // return;
-            // }
-
 
 
             lbPaises.DataSource = paises;
@@ -87,13 +81,17 @@ namespace Paises
             progressBarPaises.Value = 100;
             if (load)
             {
-                lblStatus.Text = $"Países carregados com sucesso no dia {DateTime.Now.ToShortTimeString()}";
+                lblStatus.Text = $"Países carregados com sucesso no dia {DateTime.Now.ToShortDateString()}";
             }
             else
             {
-                lblStatus.Text = $"Países carregados com sucesso no dia {DateTime.Now.ToShortTimeString()} da Base de Dados";
+                lblStatus.Text = $"Países carregados com sucesso no dia {DateTime.Now.ToShortDateString()} da Base de Dados";
             }
 
+            if (paises == null)
+            {
+                lblStatus.Text = "Não há conexão a interne e não há informação na base de dados";
+            }
 
         }
 
@@ -124,80 +122,113 @@ namespace Paises
         {
             Pais country = (Pais)lbPaises.SelectedItem;
 
-            lblCapital.Text = $"Capital: {country.capital}";
-            lblNome.Text = $"Nome: {country.name}";
-            lblGini.Text = $"Gini: {country.gini}";
-            lblRegiao.Text = $"Region: {country.region}";
-            lblSubRegiao.Text = $"SubRegion: {country.subregion}";
-            if (country.latlng.Count > 0)
-            {
-                lblLat.Text = $"Lat: {country.latlng[0]} / Lng: {country.latlng[1]}";
-            }
-            else
-            {
-                lblLat.Text = $"Lat: ";
-            }
-
-            lblNative.Text = $"Native Name: {country.nativeName}";
-            lblCioc.Text = $"Cioc: {country.cioc}";
-            lblDemonym.Text = $"Demonym: {country.demonym}";
-            lblNumeric.Text = $"Numeric: {country.numericCode}";
-            lblArea.Text = $"Area: {country.area}";
-            lblPopulacao.Text = $"População: {country.population}";
-
-            lbCurrencies.DataSource = country.currencies.ToList();
-            lbLanguages.DataSource = country.languages.ToList();
-
-           
-            try
-            {
-                if (country.alpha3Code != "BRA" && country.alpha3Code != "IOT")
-                {
-                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
-                }
-                if (country.alpha3Code == "BRA")
-                {
-                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\brazil.png");
-                }
-                if (country.alpha3Code == "IOT")
-                {
-                    pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\british_indian_ocean_territory.png");
-                }
+            
                
-            }
-            catch (Exception ex)
+
+                lblCapital.Text = $"Capital: {country.capital}";
+                lblNome.Text = $"Nome: {country.name}";
+                lblGini.Text = $"Gini: {country.gini}";
+                lblRegiao.Text = $"Region: {country.region}";
+                lblSubRegiao.Text = $"SubRegion: {country.subregion}";
+                if (country.latlng.Count > 0)
+                {
+                    lblLat.Text = $"Lat: {country.latlng[0]} / Lng: {country.latlng[1]}";
+                }
+                else
+                {
+                    lblLat.Text = $"Lat: ";
+                }
+
+                lblNative.Text = $"Native Name: {country.nativeName}";
+                lblCioc.Text = $"Cioc: {country.cioc}";
+                lblDemonym.Text = $"Demonym: {country.demonym}";
+                lblNumeric.Text = $"Numeric: {country.numericCode}";
+                lblArea.Text = $"Area: {country.area}";
+                lblPopulacao.Text = $"População: {country.population}";
+
+                lbCurrencies.DataSource = country.currencies.ToList();
+                lbLanguages.DataSource = country.languages.ToList();
+
+
+                try
+                {
+                    if (country.alpha3Code != "BRA" && country.alpha3Code != "IOT")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\onlineflags\{country.alpha3Code}.jpg");
+                    }
+                    if (country.alpha3Code == "BRA")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\brazil.png");
+                    }
+                    if (country.alpha3Code == "IOT")
+                    {
+                        pictureBox1.Load($@"C:\Users\Higor\source\repos\higorpilon\Paises\Paises\Paises\bandeiras\british_indian_ocean_territory.png");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Impossível carregar a bandeira do país");
+
+                }
+
+                // lbl
+
+                //translations
+                lblBr.Text = $"BR: {country.translations.br}";
+                lblPt.Text = $"PT: {country.translations.pt}";
+                lblDe.Text = $"DE: {country.translations.de}";
+                lblIt.Text = $"IT: {country.translations.it}";
+                lblEs.Text = $"ES: {country.translations.es}";
+                lblFa.Text = $"FA: {country.translations.fa}";
+                lblNl.Text = $"NL: {country.translations.nl}";
+                lblFr.Text = $"FR: {country.translations.fr}";
+                lblJa.Text = $"JA: {country.translations.ja}";
+                lblHr.Text = $"HR: {country.translations.hr}";
+
+
+
+
+                map.Zoom = 15;
+            if (country != null)
             {
-                MessageBox.Show(ex.Message, "Impossível carregar a bandeira do país");
+                try
+                {
+                    map.DragButton = MouseButtons.Left;
+                    map.MapProvider = GMapProviders.GoogleMap;
+                    if (country.latlng.Count > 0)
+                    {
+                        map.Position = new GMap.NET.PointLatLng(country.latlng[0], country.latlng[1]);
+                    }
 
+
+                    var connection = networkService.CheckConnection();
+
+                    if (connection.IsSuccess)
+                    {
+
+                        lbBorders.DataSource = (List<object>)country.borders.ToList();
+                        lbBorders.SelectedItem = null;
+
+                    }
+
+                    map.DragButton = MouseButtons.Left;
+                    map.MapProvider = GMapProviders.GoogleMap;
+                    if (country.latlng.Count > 0)
+                    {
+                        map.Position = new GMap.NET.PointLatLng(country.latlng[0], country.latlng[1]);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "");
+
+                }
             }
-
-            // lbl
-
-            //translations
-            lblBr.Text = $"BR: {country.translations.br}";
-            lblPt.Text = $"PT: {country.translations.pt}";
-            lblDe.Text = $"DE: {country.translations.de}";
-            lblIt.Text = $"IT: {country.translations.it}";
-            lblEs.Text = $"ES: {country.translations.es}";
-            lblFa.Text = $"FA: {country.translations.fa}";
-            lblNl.Text = $"NL: {country.translations.nl}";
-            lblFr.Text = $"FR: {country.translations.fr}";
-            lblJa.Text = $"JA: {country.translations.ja}";
-            lblHr.Text = $"HR: {country.translations.hr}";
-
-
-            map.DragButton = MouseButtons.Left;
-            map.MapProvider = GMapProviders.GoogleMap;
-            if (country.latlng.Count > 0)
-            {
-                map.Position = new GMap.NET.PointLatLng(country.latlng[0], country.latlng[1]);
-            }
-
-            map.Zoom = 15;
-
-
-            lbBorders.DataSource = (List<object>)country.borders.ToList();
-            lbBorders.SelectedItem = null;
+          
+          
 
 
             

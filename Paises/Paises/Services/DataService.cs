@@ -52,202 +52,214 @@ namespace Paises.Services
             catch (Exception e)
             {
 
-                dialogService.ShowMessage("Erro", e.Message);
+                dialogService.ShowMessage("Erro no primeiro", e.Message); // nao esta AQUI
             }
 
             //SOLUÇÃO PARA AS PELICAS
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Countries">Lista de Paises</param>
+        /// <returns>Devolve uma tarefa assíncrona que salva os dados dos paises</returns>
         public async Task SaveData(List<Pais> Countries)
         {
-
-            try
+            if (!Directory.Exists("Data"))
             {
-                string a = "";
-
-                foreach (var country in Countries)
+                try
                 {
-                    //insert in Countries
+                    string a = "";
 
-                    if (country.name.Contains("'"))
+                    foreach (var country in Countries)
                     {
-                        country.name = country.name.Replace("'", "^");
-                    }
+                        //insert in Countries
 
-                    if (country.capital.Contains("'"))
-                    {
-                        country.capital = country.capital.Replace("'", "^");
-                    }
-
-                    if (country.nativeName.Contains("'"))
-                    {
-                        country.nativeName = country.nativeName.Replace("'", "^");
-                    }
-
-
-                    string sql = $" Insert into Countries values('{country.capital}','{country.name}','{country.alpha2Code}','{country.alpha3Code}','{country.region}','{country.subregion}','{country.population}','{country.demonym}','{country.area}','{country.gini}','{country.nativeName}','{country.numericCode}','{country.cioc}','{country.flag}');";
-
-                    a = a + sql;
-
-
-
-
-
-                    for (int i = 0; i < country.altSpellings.Count; i++)
-                    {
-                        if (country.altSpellings[i].Contains("'"))
+                        if (country.name.Contains("'"))
                         {
-                            country.altSpellings[i] = country.altSpellings[i].Replace("'", "^");
+                            country.name = country.name.Replace("'", "^");
                         }
 
-                        string altsp = $" Insert into AltSpellings values('{country.alpha3Code}','{country.altSpellings[i]}');";
-
-                        a = a + altsp;
-
-
-
-                    }
-
-
-                    for (int i = 0; i < country.callingCodes.Count; i++)
-                    {
-                        string callc = $" Insert into callingCodes values('{country.alpha3Code}','{country.callingCodes[i]}');";
-
-                        a = a + callc;
-
-
-
-                    }
-
-                    foreach (Language lang in country.languages)
-                    {
-                        if (lang.nativeName.Contains("'"))
+                        if (country.capital.Contains("'"))
                         {
-                            lang.nativeName = lang.nativeName.Replace("'", "^");
+                            country.capital = country.capital.Replace("'", "^");
                         }
 
-                        string lingua = $" Insert into Languages values('{country.alpha3Code}','{lang.iso639_1}','{lang.iso639_2}','{lang.name}','{lang.nativeName}');";
-
-                        a = a + lingua;
-                    }
-
-                    foreach (Currency alto in country.currencies)
-                    {
-                        if (alto.name != null)
+                        if (country.nativeName.Contains("'"))
                         {
-                            if (alto.name.Contains("'"))
+                            country.nativeName = country.nativeName.Replace("'", "^");
+                        }
+
+
+                        string sql = $" Insert into Countries values('{country.capital}','{country.name}','{country.alpha2Code}','{country.alpha3Code}','{country.region}','{country.subregion}','{country.population}','{country.demonym}','{country.area}','{country.gini}','{country.nativeName}','{country.numericCode}','{country.cioc}','{country.flag}');";
+
+                        a = a + sql;
+
+
+
+
+
+                        for (int i = 0; i < country.altSpellings.Count; i++)
+                        {
+                            if (country.altSpellings[i].Contains("'"))
                             {
-                                alto.name = alto.name.Replace("'", "^");
+                                country.altSpellings[i] = country.altSpellings[i].Replace("'", "^");
+                            }
+
+                            string altsp = $" Insert into AltSpellings values('{country.alpha3Code}','{country.altSpellings[i]}');";
+
+                            a = a + altsp;
+
+
+
+                        }
+
+
+                        for (int i = 0; i < country.callingCodes.Count; i++)
+                        {
+                            string callc = $" Insert into callingCodes values('{country.alpha3Code}','{country.callingCodes[i]}');";
+
+                            a = a + callc;
+
+
+
+                        }
+
+                        foreach (Language lang in country.languages)
+                        {
+                            if (lang.nativeName.Contains("'"))
+                            {
+                                lang.nativeName = lang.nativeName.Replace("'", "^");
+                            }
+
+                            string lingua = $" Insert into Languages values('{country.alpha3Code}','{lang.iso639_1}','{lang.iso639_2}','{lang.name}','{lang.nativeName}');";
+
+                            a = a + lingua;
+                        }
+
+                        foreach (Currency alto in country.currencies)
+                        {
+                            if (alto.name != null)
+                            {
+                                if (alto.name.Contains("'"))
+                                {
+                                    alto.name = alto.name.Replace("'", "^");
+                                }
+                            }
+
+
+                            string bla = $" Insert into Currencies values('{country.alpha3Code}','{alto.code}','{alto.name}','{alto.symbol}');";
+
+                            a = a + bla;
+
+                        }
+
+                        //utilizar ciclo for
+
+                        for (int i = 0; i < country.latlng.Count; i++)
+                        {
+                            string altsp = $" Insert into Latlng values('{country.alpha3Code}','{country.latlng[i]}');";
+
+                            a = a + altsp;
+
+                        }
+
+
+                        //ver other acronyms
+
+                        //fazer com for
+                        foreach (Regionalbloc reg in country.regionalBlocs)
+                        {
+                            string regblocs = $" Insert into RegionalBlocs values('{country.alpha3Code}','{reg.Acronym}','{reg.Name}');";
+
+
+                            a = a + regblocs;
+
+
+                            for (int i = 0; i < reg.OtherAcronyms.Count; i++)
+                            {
+                                string acro = $" Insert into Otheracronyms values('{country.alpha3Code}','{reg.OtherAcronyms[i]}');";
+
+
+                                a = a + acro;
+
+                            }
+
+                            for (int i = 0; i < reg.OtherNames.Count; i++)
+                            {
+                                string other = $" Insert into Othernames values('{country.alpha3Code}','{reg.OtherNames[i]}');";
+
+
+                                a = a + other;
+
+                            }
+
+
+                        }
+
+
+                        if (country.translations.fr != null)
+                        {
+                            if (country.translations.fr.Contains("'"))
+                            {
+                                country.translations.fr = country.translations.fr.Replace("'", "^");
+                            }
+                        }
+
+                        if (country.translations.it != null)
+                        {
+                            if (country.translations.it.Contains("'"))
+                            {
+                                country.translations.it = country.translations.it.Replace("'", "^");
                             }
                         }
 
 
-                        string bla = $" Insert into Currencies values('{country.alpha3Code}','{alto.code}','{alto.name}','{alto.symbol}');";
+                        string trans = $" Insert into translations values('{country.alpha3Code}','{country.translations.de}','{country.translations.es}','{country.translations.fr}','{country.translations.ja}','{country.translations.it}','{country.translations.br}','{country.translations.pt}','{country.translations.nl}','{country.translations.hr}','{country.translations.fa}');";
 
-                        a = a + bla;
+                        a = a + trans;
 
-                    }
-
-                    //utilizar ciclo for
-
-                    for (int i = 0; i < country.latlng.Count; i++)
-                    {
-                        string altsp = $" Insert into Latlng values('{country.alpha3Code}','{country.latlng[i]}');";
-
-                        a = a + altsp;
-
-                    }
-
-
-                    //ver other acronyms
-
-                    //fazer com for
-                    foreach (Regionalbloc reg in country.regionalBlocs)
-                    {
-                        string regblocs = $" Insert into RegionalBlocs values('{country.alpha3Code}','{reg.Acronym}','{reg.Name}');";
-
-
-                        a = a + regblocs;
-
-
-                        for (int i = 0; i < reg.OtherAcronyms.Count; i++)
+                        for (int i = 0; i < country.timezones.Count; i++)
                         {
-                            string acro = $" Insert into Otheracronyms values('{country.alpha3Code}','{reg.OtherAcronyms[i]}');";
+                            string tzones = $" Insert into Timezones values('{country.alpha3Code}','{country.timezones[i]}');";
 
-
-                            a = a + acro;
+                            a = a + tzones;
 
                         }
 
-                        for (int i = 0; i < reg.OtherNames.Count; i++)
+                        for (int i = 0; i < country.topLevelDomain.Count; i++)
                         {
-                            string other = $" Insert into Othernames values('{country.alpha3Code}','{reg.OtherNames[i]}');";
+                            string topdomain = $" Insert into TopLevelDomain values('{country.alpha3Code}','{country.topLevelDomain[i]}');";
 
 
-                            a = a + other;
+                            a = a + topdomain;
 
                         }
 
 
                     }
 
+                    connection.Open();
+                    command = new SQLiteCommand(a, connection);
 
-                    if (country.translations.fr != null)
-                    {
-                        if (country.translations.fr.Contains("'"))
-                        {
-                            country.translations.fr = country.translations.fr.Replace("'", "^");
-                        }
-                    }
-
-                    if (country.translations.it != null)
-                    {
-                        if (country.translations.it.Contains("'"))
-                        {
-                            country.translations.it = country.translations.it.Replace("'", "^");
-                        }
-                    }
-
-
-                    string trans = $" Insert into translations values('{country.alpha3Code}','{country.translations.de}','{country.translations.es}','{country.translations.fr}','{country.translations.ja}','{country.translations.it}','{country.translations.br}','{country.translations.pt}','{country.translations.nl}','{country.translations.hr}','{country.translations.fa}');";
-
-                    a = a + trans;
-
-                    for (int i = 0; i < country.timezones.Count; i++)
-                    {
-                        string tzones = $" Insert into Timezones values('{country.alpha3Code}','{country.timezones[i]}');";
-
-                        a = a + tzones;
-
-                    }
-
-                    for (int i = 0; i < country.topLevelDomain.Count; i++)
-                    {
-                        string topdomain = $" Insert into TopLevelDomain values('{country.alpha3Code}','{country.topLevelDomain[i]}');";
-
-
-                        a = a + topdomain;
-
-                    }
-
-
+                    await command.ExecuteNonQueryAsync();
+                    connection.Close();
                 }
+                catch (Exception e)
+                {
 
-                connection.Open();
-                command = new SQLiteCommand(a, connection);
-
-                await command.ExecuteNonQueryAsync();
-                connection.Close();
+                    dialogService.ShowMessage("Erro aqui 123", e.Message);
+                }
             }
-            catch (Exception e)
-            {
-
-                dialogService.ShowMessage("Erro", e.Message);
-            }
+           
 
         }
 
+
+        /// <summary>
+        /// Busca da base de dados a informação dos países
+        /// </summary>
+        /// <returns></returns>
         public List<Pais> GetDataCountries()
         {
             List<Pais> countries = new List<Pais>();
@@ -261,41 +273,46 @@ namespace Paises.Services
             try
             {
                 connection.Open();
+              
+                
+                    SQLiteDataReader reader = new SQLiteCommand(paises, connection).ExecuteReader();
 
-                SQLiteDataReader reader = new SQLiteCommand(paises, connection).ExecuteReader();
-
-                while (reader.Read() && reader != null)
-                {
-                    Pais pais = new Pais
+                    while (reader.Read() && reader != null)
                     {
-                        capital = (string)reader["capital"],
-                        name = (string)reader["name"],
-                        alpha2Code = (string)reader["alpha2code"],
-                        alpha3Code = (string)reader["alpha3code"],
-                        region = (string)reader["region"],
-                        subregion = (string)reader["subregion"],
-                        population = (int)reader["population"],
-                        demonym = (string)reader["demonym"],
-                        area = (double)reader["area"],
-                        gini = (double)reader["gini"],
-                        nativeName = (string)reader["nativeName"],
-                        numericCode = (string)reader["numericCode"],
-                        cioc = (string)reader["cioc"],
-                        flag = (string)reader["flag"],
-                        altSpellings = AltSpellings((string)reader["alpha3code"]),
-                        callingCodes = CallingCodes((string)reader["alpha3code"]),
-                        timezones = Timezones((string)reader["alpha3code"]),
-                        latlng = Latlng((string)reader["alpha3code"]),
-                        topLevelDomain = TopLevel((string)reader["alpha3code"]),
-                        languages = Linguas((string)reader["alpha3code"]),
-                        translations = Traducoes((string)reader["alpha3code"]),
-                        regionalBlocs = Regbl((string)reader["alpha3code"]),
-                        currencies = Moedas((string)reader["alpha3code"])
+                        Pais pais = new Pais
+                        {
+                            capital = (string)reader["capital"],
+                            name = (string)reader["name"],
+                            alpha2Code = (string)reader["alpha2code"],
+                            alpha3Code = (string)reader["alpha3code"],
+                            region = (string)reader["region"],
+                            subregion = (string)reader["subregion"],
+                            population = (int)reader["population"],
+                            demonym = (string)reader["demonym"],
+                            area = (double)reader["area"],
+                            gini = (double)reader["gini"],
+                            nativeName = (string)reader["nativeName"],
+                            numericCode = (string)reader["numericCode"],
+                            cioc = (string)reader["cioc"],
+                            flag = (string)reader["flag"],
+                            altSpellings = AltSpellings((string)reader["alpha3code"]),
+                            callingCodes = CallingCodes((string)reader["alpha3code"]),
+                            timezones = Timezones((string)reader["alpha3code"]),
+                            latlng = Latlng((string)reader["alpha3code"]),
+                            topLevelDomain = TopLevel((string)reader["alpha3code"]),
+                            languages = Linguas((string)reader["alpha3code"]),
+                            translations = Traducoes((string)reader["alpha3code"]),
+                            regionalBlocs = Regbl((string)reader["alpha3code"]),
+                            currencies = Moedas((string)reader["alpha3code"])
 
-                    }; //pais
+                        }; //pais
 
-                    countries.Add(pais);
-                }
+                        countries.Add(pais);
+                    }
+
+                
+                  
+                
 
 
                 countries = TiraPelicas(countries);
@@ -304,11 +321,17 @@ namespace Paises.Services
             }
             catch (Exception e)
             {
-                dialogService.ShowMessage("Error", e.Message);
+                dialogService.ShowMessage("Base de Dados Inexistente", e.Message);
                 return null;
             }
         }
 
+
+        /// <summary>
+        /// Retorna uma lista de moedas
+        /// </summary>
+        /// <param name="chave">alpha3code</param>
+        /// <returns></returns>
         private List<Currency> Moedas(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -352,6 +375,12 @@ namespace Paises.Services
             } // alsSpellings
         }
 
+
+        /// <summary>
+        /// >Retorna uma lista de RegionalBlocs
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns</returns>
         private List<Regionalbloc> Regbl(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -394,6 +423,12 @@ namespace Paises.Services
 
         }
 
+
+        /// <summary>
+        /// retorna uma lista string
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns></returns>
         private List<string> OtherNames(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -427,6 +462,13 @@ namespace Paises.Services
             } // alsSpellings
         }
 
+
+
+        /// <summary>
+        /// retorna uma lista string
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns></returns>
         private List<string> OtherAcro(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -460,6 +502,12 @@ namespace Paises.Services
                 return null;
             } // alsSpellings
         }
+
+        /// <summary>
+        /// Devolve um objeto do tipo Translations
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns></returns>
 
         private Translations Traducoes(string chave)
         {
@@ -510,7 +558,11 @@ namespace Paises.Services
             } // alsSpellings
 
         }
-
+        /// <summary>
+        /// Retorna uma lista de Languages
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns></returns>
         private List<Language> Linguas(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -553,6 +605,13 @@ namespace Paises.Services
 
         }
 
+
+
+        /// <summary>
+        /// retorna uma lista de toplevelDomain
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns></returns>
         private List<string> TopLevel(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -587,6 +646,13 @@ namespace Paises.Services
             } // alsSpellings
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns>uma lista timezones</returns>
         private List<string> Timezones(string chave)
         {
 
@@ -624,6 +690,12 @@ namespace Paises.Services
 
         }
 
+
+        /// <summary>
+        /// Método de suporte para evitar problemas com Pelicas na base de dados 
+        /// </summary>
+        /// <param name="paises"></param>
+        /// <returns>Lista de Países com dados sem Pelicas</returns>
         private List<Pais> TiraPelicas(List<Pais> paises)
         {
 
@@ -719,6 +791,12 @@ namespace Paises.Services
             return paises;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns>uma lista altspellings</returns>
         private List<string> AltSpellings(string chave)
         {
 
@@ -756,6 +834,12 @@ namespace Paises.Services
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns>uma lista de calling codes</returns>
         private List<string> CallingCodes(string chave)
         {
             var path = @"Data\Countries.sqlite";
@@ -783,13 +867,19 @@ namespace Paises.Services
             }
             catch (Exception e)
             {
-                dialogService.ShowMessage("Error aquii", e.Message);
+                dialogService.ShowMessage("Error aqui", e.Message);
                 return null;
             } // alsSpellings
 
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chave"></param>
+        /// <returns>uma lista latitudes</returns>
         private List<double> Latlng(string chave)
         {
             var path = @"Data\Countries.sqlite";
